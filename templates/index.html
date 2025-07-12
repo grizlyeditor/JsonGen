@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gnex UID Extractor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #000000, #0f2027, #203a43, #2c5364);
+      font-family: 'Orbitron', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #00ffc3;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #00ffc3;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #00ffc3;
+      }
+      to {
+        text-shadow: 0 0 30px #00ffc3, 0 0 60px #00ffc3;
+      }
+    }
+
+    form {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 40px;
+      border: 2px solid #00ffc3;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #00ffc3;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    input[type="file"] {
+      background-color: #111;
+      border: 2px dashed #00ffc3;
+      padding: 15px;
+      width: 100%;
+      color: #00ffc3;
+      margin-bottom: 20px;
+      font-size: 1em;
+      border-radius: 10px;
+    }
+
+    input[type="file"]::file-selector-button {
+      background: #00ffc3;
+      color: black;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button {
+      background: #00ffc3;
+      color: #000;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: #00ff88;
+      transform: scale(1.05);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9em;
+      color: #00ffc3aa;
+    }
+  </style>
+</head>
+<body>
+  <h1>⚡ Gnex UID Extractor</h1>
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="zipfile" accept=".zip" required>
+    <br><br>
+    <button type="submit">🚀 Extract JSON</button>
+  </form>
+  <footer>Created with 💻 by Gnex | UID Tools</footer>
+</body>
+</html>

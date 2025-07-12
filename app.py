@@ -23,7 +23,7 @@ def upload_zip():
 
     extract_path = os.path.join("temp", "unzipped")
     os.makedirs(extract_path, exist_ok=True)
-    
+
     with zipfile.ZipFile(zip_path, 'r') as zip_ref:
         zip_ref.extractall(extract_path)
 
@@ -45,12 +45,15 @@ def upload_zip():
             except Exception as e:
                 print("Error in file:", name, "->", e)
 
-    json_path = os.path.join("temp", f"accounts_{datetime.now().timestamp()}.json")
+    json_path = f"accounts_{datetime.now().timestamp()}.json"
     with open(json_path, 'w') as jf:
         json.dump(accounts, jf, indent=4)
 
-    shutil.rmtree("temp")  # clean after processing
+    shutil.rmtree("temp")  # cleanup
     return send_file(json_path, as_attachment=True)
 
+# ✅ Fixed this part for Render support
 if __name__ == "__main__":
-    app.run(debug=True)
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
